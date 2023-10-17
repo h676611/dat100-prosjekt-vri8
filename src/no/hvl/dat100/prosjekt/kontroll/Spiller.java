@@ -3,6 +3,7 @@ package no.hvl.dat100.prosjekt.kontroll;
 import no.hvl.dat100.prosjekt.modell.KortSamling;
 import no.hvl.dat100.prosjekt.modell.KortUtils;
 import no.hvl.dat100.prosjekt.TODO;
+import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
 import no.hvl.dat100.prosjekt.kontroll.spill.Spillere;
 import no.hvl.dat100.prosjekt.modell.Kort;
 
@@ -35,7 +36,10 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
+		this.hand = new KortSamling();
+		this.antalltrekk = 0;
+		this.spiller = Spillere.INGEN;
+		
 		// TODO - END
 	}
 
@@ -49,8 +53,11 @@ public abstract class Spiller implements ISpiller {
 	public Spiller(Spillere spiller) {
 		
 		// TODO - START
+		
+		this.hand = new KortSamling();
+		this.antalltrekk = 0;
+		this.spiller = spiller;
 
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
 		// TODO - END
 	}
 
@@ -58,7 +65,8 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return hand.getAntalKort();
+		
 
 		// TODO - END
 	}
@@ -67,7 +75,8 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return hand;
+		
 
 		// TODO - END
 	}
@@ -75,8 +84,8 @@ public abstract class Spiller implements ISpiller {
 	public int getAntallTrekk() {
 		
 		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
+
+		return antalltrekk;
 
 		// TODO - END
 	}
@@ -85,7 +94,8 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		return spiller;
+		
 
 		// TODO - END
 		
@@ -95,7 +105,8 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		antalltrekk = t;
+		
 		// TODO - END
 	}
 
@@ -103,7 +114,11 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		if (this.getAntallKort() == 0) {
+			return true;
+		}
+		return false;
+		
 		// TODO - END
 		
 	}
@@ -112,7 +127,8 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		hand.leggTil(kort);
+		
 		// TODO - END
 		
 	}
@@ -121,7 +137,8 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		hand.fjern(kort);
+
 		// TODO - END
 		
 	}
@@ -129,8 +146,9 @@ public abstract class Spiller implements ISpiller {
 	public void fjernAlleKort() {
 		
 		// TODO - START
+
+		hand.fjernAlle();
 		
-		throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 	}
 
@@ -138,7 +156,9 @@ public abstract class Spiller implements ISpiller {
 		
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		hand.leggTil(kort);
+		antalltrekk++;
+		
 		// TODO - END
 		
 	}
